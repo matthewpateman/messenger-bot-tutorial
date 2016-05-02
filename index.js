@@ -41,6 +41,7 @@ app.post('/webhook/', function (req, res) {
 				sendGenericMessage(sender)
 				continue
 			}
+			console.log(text.substring(0, 200));
 			sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
 		}
 		if (event.postback) {
@@ -52,7 +53,7 @@ app.post('/webhook/', function (req, res) {
 	res.sendStatus(200)
 })
 
-console.log(text.substring(0, 200));
+
 var token = FB_PAGE_ACCESS_TOKEN
 
 function sendTextMessage(sender, text) {
