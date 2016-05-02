@@ -25,6 +25,7 @@ app.get('/', function (req, res) {
 app.get('/webhook/', function (req, res) {
 	if (req.query['hub.verify_token'] === FB_VERIFY_TOKEN) {
 		res.send(req.query['hub.challenge'])
+		console.log("Correct token");
 	}
 	res.send('Error, wrong token')
 })
