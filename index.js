@@ -6,8 +6,6 @@ var app = express()
 const FB_VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN;
 const FB_PAGE_ACCESS_TOKEN = process.env.FB_PAGE_ACCESS_TOKEN;
 
-
-
 app.set('port', (process.env.PORT || 5000))
 
 // parse application/x-www-form-urlencoded
@@ -23,7 +21,7 @@ app.get('/', function (req, res) {
 
 // for facebook verification
 app.get('/webhook/', function (req, res) {
-	if (req.query['hub.verify_token'] === FB_VERIFY_TOKEN) {
+	if (req.query['hub.verify_token'] == FB_VERIFY_TOKEN) {
 		res.send(req.query['hub.challenge'])
 		console.log("Correct token");
 	}
