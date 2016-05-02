@@ -52,6 +52,7 @@ app.post('/webhook/', function (req, res) {
 	res.sendStatus(200)
 })
 
+console.log(FB_PAGE_ACCESS_TOKEN);
 var token = FB_PAGE_ACCESS_TOKEN
 
 function sendTextMessage(sender, text) {
