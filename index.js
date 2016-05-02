@@ -23,7 +23,7 @@ app.get('/', function (req, res) {
 app.get('/webhook/', function (req, res) {
 	if (req.query['hub.verify_token'] == FB_VERIFY_TOKEN) {
 		res.send(req.query['hub.challenge'])
-		console.log("Correct token");
+		console.log("Correct token")
 	}
 	res.send('Error, wrong token')
 })
@@ -41,12 +41,12 @@ app.post('/webhook/', function (req, res) {
 				sendGenericMessage(sender)
 				continue
 			}
-			console.log("Text received");
+			console.log("Text received")
 			sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
 		}
 		if (event.postback) {
 			text = JSON.stringify(event.postback)
-			console.log("postback received");
+			console.log("postback received")
 			sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
 			continue
 		}
